@@ -9,7 +9,9 @@ import org.json.JSONObject;
 public class Application {
 	
 	// serviceKey 값(공공데이터 사이트에서 승인 받은 serviceKey값)
+	
 	public static final String serviceKey = "B89IuQPz4Ros4mmF86h9rCpFFjNL%2Bmi%2FnnjSEhyRRqVRyBqoP3ePHSrjoAwS0sGIhvPVTmbS8q0q8EtQV%2FQqxg%3D%3D";
+
 	public static void main(String[] args) throws IOException {
 		
 		// URL(key값 제외한 주소)
