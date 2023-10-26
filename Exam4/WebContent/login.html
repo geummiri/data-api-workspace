@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<title>Insert title here</title>
+
+</head>
+<body>
+ 	<h1>로그인</h1>
+ 	<p>아이디 : <input type="text" id="id"/></p>
+ 	<p>비밀번호 : <input type="password" id="pwd"/></p>
+ 	<button>로그인</button>
+ 	
+ 	<!--jQuery 사용   -->
+ 	<script>
+ 	//이벤트 : 버튼 클릭시 -> click, 입력을 작성하는 순간 이벤트 -> input,
+ 	//값이 변경했을 시 -> change
+ 	$("button").on("", function() {
+ 		const id = $("#id").val();
+ 		const pwd = $("#pwd").val();
+ 		//정규표현식은 제공됨
+ 		
+ 		$.ajax({
+ 			url : "",
+ 			data: {id: id, pwd: pwd} ,
+ 			sucess: function(response){
+ 				//정규표현식 값 받아서 띄우는 정도만 하는걸로~~
+ 				alert(response);
+ 				//만약 response 값을 화면으로 받고싶다 -> $(선택자).html(response);
+ 				
+ 			}
+ 			
+ 		})
+ 		
+ 	})
+ 		
+ 	</script>
+</body>
+</html>

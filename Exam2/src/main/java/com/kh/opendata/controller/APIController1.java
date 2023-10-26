@@ -27,6 +27,7 @@ public class APIController1 {
 		url += "&sidoName=" + URLEncoder.encode(sidoName, "UTF-8");
 
 
+		
 		URL requestUrl = new URL(url);
 		HttpURLConnection urlConnection = (HttpURLConnection) requestUrl.openConnection();
 		urlConnection.setRequestMethod("GET"); // 요청 방식
