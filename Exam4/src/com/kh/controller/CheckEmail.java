@@ -9,39 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.dao.MemberDAO;
 
+import com.kh.dao.MemberDAO1;
 
-@WebServlet("/Login")
-public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-
+@WebServlet("/CheckEmail")
+public class CheckEmail extends HttpServlet {
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		
+		//제출하기전에 1 없애야해
+		MemberDAO1 dao = new MemberDAO1();
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter pw = response.getWriter();
+		PrintWriter resp = response.getWriter();
 		
-		MemberDAO dao = new MemberDAO();
-		
-		try {
-			boolean result = dao.login(id, pwd);
-			if(result) { // true면 일치한 거니까
-				pw.println("로그인 성공!");
-			} else {
-				pw.println("로그인 실패!");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			pw.println("로그인 에러!");
-		}
-	
-		
-		
-	}
+		String email = request.getParameter("email");
 
+		try {
+		Boolean result = dao.isEmailExist(email);
+		if(result) {
+			resp.println("이미 사용중인 email ");
+		}
+		else { resp.println("사용 가능한 email");
+		}
+		}
+		catch(Exception e) {
+		e.printStackTrace();
+		resp.println("조회하는 도중 오류가 발생했습니다.");
+		}
+		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

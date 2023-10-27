@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
 </head>
 <body>
- 	<h1>·Î±×ÀÎ</h1>
- 	<p>¾ÆÀÌµğ : <input type="text" id="id"/></p>
- 	<p>ºñ¹Ğ¹øÈ£ : <input type="password" id="pwd"/></p>
- 	<button>·Î±×ÀÎ</button>
- 	
- 	<!--jQuery »ç¿ë   -->
- 	<script>
- 	//ÀÌº¥Æ® : ¹öÆ° Å¬¸¯½Ã -> click, ÀÔ·ÂÀ» ÀÛ¼ºÇÏ´Â ¼ø°£ ÀÌº¥Æ® -> input,
- 	//°ªÀÌ º¯°æÇßÀ» ½Ã -> change
- 	$("button").on("", function() {
- 		const id = $("#id").val();
- 		const pwd = $("#pwd").val();
- 		//Á¤±ÔÇ¥Çö½ÄÀº Á¦°øµÊ
- 		
- 		$.ajax({
- 			url : "",
- 			data: {id: id, pwd: pwd} ,
- 			sucess: function(response){
- 				//Á¤±ÔÇ¥Çö½Ä °ª ¹Ş¾Æ¼­ ¶ç¿ì´Â Á¤µµ¸¸ ÇÏ´Â°É·Î~~
- 				alert(response);
- 				//¸¸¾à response °ªÀ» È­¸éÀ¸·Î ¹Ş°í½Í´Ù -> $(¼±ÅÃÀÚ).html(response);
- 				
- 			}
- 			
- 		})
- 		
- 	})
- 		
- 	</script>
+	<h1>ë¡œê·¸ì¸</h1>
+	<p>ì•„ì´ë”” : <input type="text" id="id"></p>
+	<p>ë¹„ë°€ë²ˆí˜¸ : <input type="password" id="pwd"></p>
+	<input type="text" id="box" />
+	<button>ë¡œê·¸ì¸</button>
+	
+	<script>
+	// ì´ë²¤íŠ¸ : ë²„íŠ¼ í´ë¦­ì‹œ -> click, ì…ë ¥ì„ ì‘ì„±í•˜ëŠ” ìˆœê°„ -> input, ê°’ì´ ë³€ê²½ëì„ ì‹œ -> change
+	$("button").on("click", function(){
+		const id = $("#id").val();
+		const pwd = $("#pwd").val();
+		//const box = $("#box");
+		
+		// ì •ê·œí‘œí˜„ì‹ ì œê³µë¨
+		
+		if(pwd.length < 1 || pw.length>5) {
+			alert("ë‹¤ì‹œ ì…ë ¥í•´");
+			
+		} else if (id.length <20){
+			alert("ë‹¤ì‹œ");
+		
+		} else {
+			console.log("í†µê³¼");
+			
+		
+		$.ajax({
+			url: "Login",
+			data: {id: id, pwd: pwd},
+			success: function(response){
+				alert(response);
+				$(responseContainer).html(response)
+				// ë§Œì•½ response ê°’ì„ í™”ë©´ìœ¼ë¡œ ë°›ê³  ì‹¶ë‹¤ -> $(ì„ íƒì).html(response);
+			}	
+		});
+	}
+		return false;
+	});
+	</script>
 </body>
 </html>
